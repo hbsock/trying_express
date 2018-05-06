@@ -4,9 +4,26 @@ var Genre = require('../models/genre');
 var BookInstance = require('../models/bookinstance');
 
 var async = require('async');
+var Promise = require('promise');
 
 exports.index = function(req, res) {
-
+    
+    /*
+    Promise
+    .all({
+        book_count: Book.count({}),
+        book_instance_count: BookInstance.count({}),
+        book_instance_available_count: BookInstance.count({status: 'Available'}),
+        author_count: Author.count({}),
+        genre_count: Genre.count({}),})
+    .then(function(results) {
+        res.render('index', {title: 'Local Library Home', data: results});
+    })
+    .catch((err) => {
+        res.render('index', {title: 'Local Library Home', error: err});
+        
+    });
+    */
     async.parallel({
         book_count: function(callback) {
             Book.count({}, callback);
