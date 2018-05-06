@@ -62,3 +62,5 @@ typings/
 
 # ignore swap files from vim.
 *.swp
+
+config.js
