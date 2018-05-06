@@ -8,9 +8,11 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var catalogRouter = require('./routes/catalog');  //Import routes for "catalog" area of site
 
+var env = process.env.NODE_ENV || 'development';
+var config = require('./config')[env];
+
 var app = express();
 
-var config = require('./config');
 
 //Set up mongoose connection
 var mongoose = require('mongoose');
