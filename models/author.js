@@ -32,6 +32,13 @@ AuthorSchema
   return '/catalog/author/' + this._id;
 });
 
+AuthorSchema.
+virtual('lifespan')
+.get(function() {
+    return format_date(this.date_of_birth) + ' - ' +
+        format_date(this.date_of_death);
+});
+
 AuthorSchema
 .virtual('date_of_birth_formatted')
 .get(function() {
